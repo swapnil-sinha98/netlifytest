@@ -1,6 +1,8 @@
-var PORT=process.env.PORT || 9666;
 var getUserMedia = require('getusermedia')
-
+const video = document.querySelector('video')
+const filter = document.querySelector('#filter')
+const checkboxTheme = document.querySelector('#theme')
+const messageInput = document.getElementById('yourMessage')
 getUserMedia({ video: true, audio: false }, function (err, stream) {
   if (err) return console.error(err)
 
@@ -10,6 +12,12 @@ getUserMedia({ video: true, audio: false }, function (err, stream) {
     trickle: false,
     stream: stream
   })
+  filter.addEventListener('change', (event) => {
+    currentFilter = event.target.value
+    video.style.filter = currentFilter
+    SendFilter(currentFilter)
+    event.preventDefault
+})
 
   peer.on('signal', function (data) {
     document.getElementById('yourId').value = JSON.stringify(data)
@@ -23,6 +31,7 @@ getUserMedia({ video: true, audio: false }, function (err, stream) {
   document.getElementById('send').addEventListener('click', function () {
     var yourMessage = document.getElementById('yourMessage').value
     peer.send(yourMessage)
+    messageInput.value = ''
   })
 
   peer.on('data', function (data) {
@@ -37,3 +46,19 @@ getUserMedia({ video: true, audio: false }, function (err, stream) {
     video.play()
   })
 })
+checkboxTheme.addEventListener('click', () => {
+  if (checkboxTheme.checked == true) {
+      document.body.style.backgroundColor = '#212529'
+      if (document.querySelector('#muteText')) {
+          document.querySelector('#muteText').style.color = "#fff"
+      }
+
+  }
+  else {
+      document.body.style.backgroundColor = '#fff'
+      if (document.querySelector('#muteText')) {
+          document.querySelector('#muteText').style.color = "#212529"
+      }
+  }
+}
+)
