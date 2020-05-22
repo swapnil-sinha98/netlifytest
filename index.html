@@ -6,21 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="main.css" rel="stylesheet">
-
+    <!-- <style>
+        body {
+          padding: 0;
+          margin: 0;
+          display: flex;
+          justify-content: center;
+          background-color: aquamarine;
+        }
+    
+        #message-container {
+          width: 80%;
+          max-width: 1200px;
+        }
+    
+        #message-container div {
+          background-color: rgb(212, 30, 30);
+          padding: 5px;
+        }
+    
+        #message-container div:nth-child(2n) {
+          background-color: rgb(250, 246, 246);
+        }
+    
+        #send-container {
+          position: fixed;
+          padding-bottom: 30px;
+          bottom: 0;
+          background-color: rgb(248, 247, 247);
+          max-width: 1200px;
+          width: 80%;
+          display: flex;
+        }
+    
+        #message-input {
+          flex-grow: 1;
+        }
+      </style> -->
+      <style>
+        body {
+          background-color: aquamarine;
+        }
+      </style>
   </head>
   <body>
+    
     <div class="container-fluid">
       <div class="row h-1 w-100">
           <div class="col">
               <select id="filter" class="w-100 bg-dark text-light ml-2 mt-2 select font-weight-bold border">
-                  <option value="none">Normal</option>
-                  <option value="grayscale(100%)">B & W</option>
+                  <option value="none">Welcome to video chat app</option>
+                  <!-- <option value="grayscale(100%)">B & W</option>
                   <option value="sepia(100%)">Old School</option>
                   <option value="contrast(150%)">Lumination</option>
                   <option value="blur(20px)">Hidden Mist</option>
                   <option value="invert(100%)">Dracula</option>
                   <option value="hue-rotate(180deg">X-men Beast</option>
-                  <option value="saturate(25)">Super Saiyan God</option>
+                  <option value="saturate(25)">Super Saiyan God</option> -->
               </select>
           </div>
           <div class="col">
@@ -32,28 +74,38 @@
               </div>
           </div>
       </div>
-      <!-- <div class="row h-1 w-1">
-          <div class="col-12 col-sm-6 d-flex justify-content-center">
+      <div class="row h-1 w-1">
+          <!-- <div class="col-12 col-sm-6 d-flex justify-content-center">
               <div class="embed-responsive embed-responsive-16by9">
                   <video class="embed-responsive-item" muted></video>
               </div>
-          </div>
-          <div class="col-12 col-sm-6 d-flex justify-content-center">
+          </div> -->
+          <div class="col-12 col-sm-12 d-flex justify-content-center">
               <div id="peerDiv" class="embed-responsive embed-responsive-16by9">
               </div>
-          </div> -->
+          </div>
       </div>
-  </div>
+
     <label>Your ID:</label><br/>
     <textarea id="yourId"></textarea><br/>
     <label>Other ID:</label><br/>
     <textarea id="otherId"></textarea>
     <button id="connect">connect</button><br/>
+ 
 
     <label>Enter Message:</label><br/>
     <textarea id="yourMessage"></textarea>
     <button id="send">send</button>
     <pre id="messages"></pre>
+  
+    <!-- <div class="col">
+    <div id="message-container"></div>
+  <form id="send-container">
+    <input type="text" id="yourMessage">
+    <button type="submit" id="send">Send</button>
+    <pre id="messages"></pre>
+  </form>
+</div> -->
 
     <script src="bundle.js" charset="utf-8"></script>
   </body>

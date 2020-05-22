@@ -22,6 +22,7 @@ getUserMedia({ video: true, audio: false }, function (err, stream) {
   peer.on('signal', function (data) {
     document.getElementById('yourId').value = JSON.stringify(data)
   })
+  
 
   document.getElementById('connect').addEventListener('click', function () {
     var otherId = JSON.parse(document.getElementById('otherId').value)
@@ -40,8 +41,9 @@ getUserMedia({ video: true, audio: false }, function (err, stream) {
 
   peer.on('stream', function (stream) {
     var video = document.createElement('video')
-    document.body.appendChild(video)
-
+   // video.setAttribute('class', 'embed-responsive-item')
+    //document.body.appendChild(video)
+    document.querySelector('#peerDiv').appendChild(video)
     video.srcObject = stream
     video.play()
   })
@@ -55,7 +57,7 @@ checkboxTheme.addEventListener('click', () => {
 
   }
   else {
-      document.body.style.backgroundColor = '#fff'
+      document.body.style.backgroundColor = 'aquamarine'
       if (document.querySelector('#muteText')) {
           document.querySelector('#muteText').style.color = "#212529"
       }

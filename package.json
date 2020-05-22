@@ -15,5 +15,13 @@
   "dependencies": {
     "getusermedia": "^1.3.5",
     "simple-peer": "^5.12.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swapnil-sinha98/netlifytest.git"
+  },
+  "bugs": {
+    "url": "https://github.com/swapnil-sinha98/netlifytest/issues"
+  },
+  "homepage": "https://github.com/swapnil-sinha98/netlifytest#readme"
 }
